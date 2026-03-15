@@ -11,9 +11,8 @@ class TestBooksCollector:
     # обязательно указывать префикс test_
     # дальше идет название метода, который тестируем add_new_book_
     # затем, что тестируем add_two_books - добавление двух книг
-    def test_add_new_book_add_two_books(self):
+    def test_add_new_book_add_two_books(self, collector):
         # создаем экземпляр (объект) класса BooksCollector
-        collector = BooksCollector()
 
         # добавляем две книги
         collector.add_new_book('Гордость и предубеждение и зомби')
@@ -27,8 +26,8 @@ class TestBooksCollector:
     # чтобы тесты были независимыми в каждом из них создавай отдельный экземпляр класса BooksCollector()
 
    # Проверка 1. Проверить, что новая книга добавилась 
-    def test_add_new_book_add_book_in_collector(self):
-        collector = BooksCollector()
+    def test_add_new_book_add_book_in_collector(self, collector):
+
         book_name = 'Гарри Поттер и филосовский камень'
     
         collector.add_new_book(book_name)
@@ -38,8 +37,7 @@ class TestBooksCollector:
 
     # Проверка 2. Проверка книги с возрастным рейтингом отсутствует в списке книг для детей 
 
-    def test_get_books_for_children_is_absent_genre_age_rating(self):
-        collector = BooksCollector()
+    def test_get_books_for_children_is_absent_genre_age_rating(self, collector):
 
         collector.add_new_book('Медвежонок Паддингтон')  
         collector.add_new_book('Сияние')  
@@ -56,8 +54,8 @@ class TestBooksCollector:
            
     # Проверка 3. Проверить, что книги с длиной 40 символов не попадают в словарь 
 
-    def test_add_new_book_not_added_if_symbols_more40(self):
-        collector = BooksCollector()
+    def test_add_new_book_not_added_if_symbols_more40(self, collector):
+
         book_name = 'Жареные зеленые помидоры в кафе "Полустанок"'
 
         collector.add_new_book(book_name)
@@ -66,8 +64,7 @@ class TestBooksCollector:
     
     # Проверка 4. Проверить, что у добавленной книги нету жанра
 
-    def test_get_book_genre_not_books_with_specific_genre(self):
-        collector = BooksCollector()
+    def test_get_book_genre_not_books_with_specific_genre(self, collector):
 
         collector.add_new_book('Десять негритят')
 
@@ -75,8 +72,7 @@ class TestBooksCollector:
         
     # Проверка 5. Проверить, что книги добавляются в Избранном 
 
-    def test_add_book_in_favorites_success(self):
-        collector = BooksCollector()
+    def test_add_book_in_favorites_success(self, collector):
 
         book_name = 'Гарри Поттер и тайная комната'
     
@@ -87,8 +83,8 @@ class TestBooksCollector:
         
     # Проверка 6. Проверить, что книга удаляется из Избранного
 
-    def test_delete_book_from_favorites_success(self):
-        collector = BooksCollector()
+    def test_delete_book_from_favorites_success(self, collector):
+
         book_name = 'Мастер и Маргарита'
     
     
@@ -102,8 +98,8 @@ class TestBooksCollector:
 
     # Проверка 7. Проверить список книг в Избранном
 
-    def test_get_list_of_favorites_books_success(self):
-        collector = BooksCollector()
+    def test_get_list_of_favorites_books_success(self, collector):
+
         book_name = 'Война и мир'
 
         collector.add_new_book(book_name)
@@ -115,8 +111,7 @@ class TestBooksCollector:
 
     # Проверка 8. Проверить, что жанр книги по её имени отображается 
 
-    def test_get_book_genre_returns_correct_genre(self):
-        collector = BooksCollector()
+    def test_get_book_genre_returns_correct_genre(self, collector):
 
         book_name = 'Убийства и кексики'
         book_genre = 'Детективы'
@@ -135,8 +130,7 @@ class TestBooksCollector:
         ({})  # Пустой словарь
     ])
 
-    def test_get_books_genre_return_success(self, books_with_genres):
-        collector = BooksCollector()
+    def test_get_books_genre_return_success(self, books_with_genres, collector):
 
         for book, genre in books_with_genres.items():
             collector.add_new_book(book)

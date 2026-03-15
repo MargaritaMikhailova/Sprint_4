@@ -49,9 +49,9 @@ class TestBooksCollector:
 
         result = collector.get_books_for_children()
     
-        assert 'Ужасы' not in result
-        assert 'Детектив' not in result
-        assert 'Мультфильмы' in result
+        assert 'Сияние' not in result
+        assert 'Шерлок Холмс' not in result
+        assert 'Медвежонок Паддингтон' in result
         assert len(result) == 1
            
     # Проверка 3. Проверить, что книги с длиной 40 символов не попадают в словарь 

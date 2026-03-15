@@ -51,6 +51,7 @@ class TestBooksCollector:
     
         assert 'Ужасы' not in result
         assert 'Детектив' not in result
+        assert 'Мультфильмы' in result
         assert len(result) == 1
            
     # Проверка 3. Проверить, что книги с длиной 40 символов не попадают в словарь 
